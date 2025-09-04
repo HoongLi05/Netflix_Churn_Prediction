@@ -2,7 +2,7 @@ import streamlit as st
 from joblib import load
 import numpy as np
 
-dTmodel = load('decision_tree_model.joblib')
+dTmodel = load('decisionTree_model.joblib')
 
 # --- Title ---
 st.title("🎬 Netflix Churn Prediction")
