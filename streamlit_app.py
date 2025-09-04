@@ -7,7 +7,6 @@ dTmodel = load('decision_tree_model.joblib')
 # --- Title ---
 st.title("🎬 Netflix Churn Prediction")
 
-
 subscription_type = st.selectbox(
     "Select Subscription Type",
     options=[1, 2, 3],
@@ -25,6 +24,8 @@ number_of_profiles = st.selectbox(
     "Select Number of Profiles",
     options=list(range(1, 6))
 )
+
+# number_of_profiles = st.number_input("Enter number of profiles", min_value=1, max_value=5, step=1)
 
 watch_hours = st.number_input("Enter total watch hours", min_value=0.0, step=1.0)
 last_login_days = st.number_input("Enter days since last login", min_value=0, step=1)
