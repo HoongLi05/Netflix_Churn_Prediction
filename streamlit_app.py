@@ -37,16 +37,26 @@ avg_watch_time_per_day = st.number_input(
 
 has_error = False
 
-if watch_hours != 0 and avg_watch_time_per_day == 0:
-    st.error("⚠️ Average watch time per day cannot be 0 if total watch hours is not 0.")
+if watch_hours == 0:
+    st.warning("⚠ The total watch hours is 0. This case was not in the training data, so the prediction may be unreliable.")
+    # st.error("⚠ The total watch hours should not be 0.")
+    # has_error = True
+
+elif watch_hours != 0 and avg_watch_time_per_day == 0:
+    st.error("⚠ Average watch time per day cannot be 0 if total watch hours is not 0.")
     has_error = True
 
 elif avg_watch_time_per_day > watch_hours:
-    st.error("⚠️ Average watch time per day cannot be greater than total watch hours.")
+    st.error("⚠ Average watch time per day cannot greater than total watch hours.")
+    has_error = True
+
+elif(watch_hours / avg_watch_time_per_day) < last_login_days:
+    st.error("⚠ Invalid average watch time per day or number of days since last login provided. " \
+    "The total watch day should not less than number of days since last login!")
     has_error = True
 
 else:
-    st.success("✅ Input values look valid!")
+    st.success("✅ All input values look valid!")
 
 # --- Disable Predict button if error exists ---
 predict_btn = st.button("Predict Churn", disabled=has_error)
