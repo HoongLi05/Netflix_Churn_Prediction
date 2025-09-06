@@ -27,10 +27,10 @@ number_of_profiles = st.selectbox(
 
 # number_of_profiles = st.number_input("Enter number of profiles", min_value=1, max_value=5, step=1)
 
-watch_hours = st.number_input("Enter total watch hours", min_value=0.00, step=0.10, format="%.2f")
+watch_hours = st.number_input("Enter total watch hours", min_value=0.00, step=0.01, format="%.2f")
 last_login_days = st.number_input("Enter days since last login", min_value=0, step=1)
 avg_watch_time_per_day = st.number_input("Enter avg watch time per day (hours)", 
-                                         min_value=0.00, step=0.10, format="%.2f")
+                                         min_value=0.00, step=0.01, format="%.2f")
 
 has_error = False
 
