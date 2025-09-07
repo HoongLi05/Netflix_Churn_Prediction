@@ -35,7 +35,7 @@ avg_watch_time_per_day = st.number_input("Enter avg watch time per day (hours)",
 has_error = False
 
 if watch_hours == 0 and avg_watch_time_per_day > 0:
-    st.warning("⚠ Average watch time per day cannot greater than total watch hours.")
+    st.error("⚠ Average watch time per day cannot greater than total watch hours.")
     has_error = True
 
 elif watch_hours == 0:
