@@ -39,6 +39,10 @@ if watch_hours == 0:
     # st.error("⚠ The total watch hours should not be 0.")
     # has_error = True
 
+elif watch_hours == 0 and avg_watch_time_per_day > 0:
+    st.warning("⚠ Average watch time per day cannot greater than total watch hours.")
+    has_error = True
+
 elif watch_hours != 0 and avg_watch_time_per_day == 0:
     st.error("⚠ Average watch time per day cannot be 0 if total watch hours is not 0.")
     has_error = True
